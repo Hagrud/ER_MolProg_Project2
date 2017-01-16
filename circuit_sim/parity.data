@@ -1,0 +1,9 @@
+% This circuit implements the parity algorithm as seen in the slides
+% File format for 6bits circuit is detailled in sim-6b.py
+1; 0:0,1:1
+2; 00:00,01:01,10:01,11:00
+3; 00:00,01:01,10:01,11:00
+4; 00:00,01:10,10:10,11:00
+5; 00:00,01:10,10:10,11:00
+6; 00:00,01:10,10:10,11:00
+7; 0:0,1:1
