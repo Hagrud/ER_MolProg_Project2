@@ -20,17 +20,17 @@ def parse_6b_circuit(filename):
    raw_data = open(filename, "r").read()
    raw_data = list(filter(lambda x: not(x == '' or x[0] == '%'),raw_data.split("\n")))
    circuit = {1:{},2:{},3:{},4:{},5:{},6:{},7:{}}
-   for row in raw_data:
-      row_data = row.split(';')
-      row_number = int(row_data[0])
-      if not row_number in circuit or circuit[row_number] != {}:
-         print('Error while parsing '+filename+': rows should be numbered from 1 to 7 and specified exactly once.')
-         sys.exit()
-      truth_table = row_data[1].replace(" ", "").split(',')
-      for entry in truth_table:
-         parsed_entry = entry.split(':')
-         circuit[row_number][parsed_entry[0]] = parsed_entry[1]
 
+   for (i,row) in enumerate(raw_data):
+      if i == 0 or i == 6:
+         circuit[i+1]['0'] = row[0]
+         circuit[i+1]['1'] = row[1]
+      else:
+         circuit[i+1]['00'] = row[0]+row[1]
+         circuit[i+1]['01'] = row[2]+row[3]
+         circuit[i+1]['10'] = row[4]+row[5]
+         circuit[i+1]['11'] = row[6]+row[7]
+   print(circuit)
    return circuit
 
 # f is the 6b function computed
@@ -40,11 +40,16 @@ def f(circuit,x):
    input_2_2 = circuit[3][x[1]+x[2]][0]
    
    input_4_1 = circuit[3][x[1]+x[2]][1]
-   input_4_2 = circuit[6][x[3]+x[4]][0]
+   input_4_2 = circuit[5][x[3]+x[4]][0]
 
-   input_6_1 = circuit[6][x[3]+x[4]][1]
+   input_6_1 = circuit[5][x[3]+x[4]][1]
    input_6_2 = circuit[7][x[5]]
-
+   #print(input_2_1)
+   #print(input_2_2)
+   #print(input_4_1)
+   #print(input_4_2)
+   #print(input_6_1)
+   #print(input_6_2)
    return circuit[2][input_2_1+input_2_2]+circuit[4][input_4_1+input_4_2]+circuit[6][input_6_1+input_6_2]
 
 
@@ -81,7 +86,7 @@ def main(argv):
       seen[curr_state] = k
       curr_state = f(circuit,curr_state)
       k+=1
-   print("s"+str(k+1)+" "+curr_state+" (cf s"+str(seen[curr_state])+")")
+   print("s"+str(k)+" "+curr_state+" (cf s"+str(seen[curr_state])+")")
 
 if __name__ == "__main__":
    main(sys.argv)

@@ -1,9 +1,0 @@
-% This circuit implements (show in example in the slides).
-% File format for 6bits circuit is detailled in sim-6b.py
-1; 0:0,1:1
-2; 00:00,01:10,10:01,11:11
-3; 00:00,01:10,10:01,11:11
-4; 00:00,01:10,10:01,11:11
-5; 00:00,01:10,10:01,11:11
-6; 00:00,01:10,10:01,11:11
-7; 0:0,1:1
