@@ -7,14 +7,6 @@ def help():
    print('sim-6b.py -i <inputfile> -s <initial_state>')
    sys.exit()
 
-# To specify a 6b circuit to the program you should do:
-# 
-# gate_number; <truth_table>
-# The k bits truth_table format being:
-# <input 1 >:<output 1>, ..., <input 2^k>:<output 2^k>
-#
-# In 6 bits circuits k is 1 for gates 1 and 7 and 2 for others
-# For k=2 gates the convention is Up Down -> Up Down
 
 def parse_6b_circuit(filename):
    raw_data = open(filename, "r").read()
