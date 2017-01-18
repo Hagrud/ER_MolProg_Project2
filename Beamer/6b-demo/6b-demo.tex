@@ -154,4 +154,47 @@ We do not find such a network, here there's the histogram of orbits: \\
 \textbf{Conclusion:} There are no bijective 6bits counters.
 }
 
+
+\section{Computable bijections on $\{0,1\}^6$}
+\subsection{2*161517 property}
+
+\frame{\frametitle{2*161517 property}
+
+If we have an almost-bijection \textbf{all 6 bits sequences will be reached by our network but one}.\\ \ \\
+Also one bit string will be reached \textbf{twice}. \\ \ \\
+It means that \textbf{at least one} of our sub network will see:
+\begin{itemize}
+\item 2 patterns \textbf{16} times
+\item 1 pattern \textbf{15} times
+\item 1 pattern \textbf{17} times
+\end{itemize}
+}
+
+\frame{\frametitle{2*161517 property}
+
+We call this the \textbf{2*161517 property}.
+
+}
+\subsection{Conclusion}
+\frame{\frametitle{2*161517 does not occur !}
+
+By enumeration, \textbf{there exist no sub network with the 2*161517} property. \\
+\textbf{Hence}, we cannot hope for an \textbf{almost-bijective counter}.
+
+}
+
+\section{Conclusion}
+\frame{\frametitle{No 6bit counter network :'( }
+
+By case distinction, \textbf{there's no 6bit counter network}.
+\\ \
+But there are \textbf{0 to 62} counters and this kind of methods helps to exhibit \textbf{at least 24}.
+}
+
+\frame{\frametitle{Sources ? }
+
+All our sources for these computations are available here: \\ \ \\
+\url{https://github.com/cosmo-sterin/ER_MolProg_Project2/tree/master/circuit_sim}
+}
+
 \end{document}
