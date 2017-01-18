@@ -1,3 +1,6 @@
 \beamer@endinputifotherversion {3.36pt}
 \beamer@sectionintoc {1}{Problem Statement}{2}{0}{1}
 \beamer@sectionintoc {2}{Computable bijections on $\{0,1\}^6$}{7}{0}{2}
+\beamer@subsectionintoc {2}{1}{4*16 property}{7}{0}{2}
+\beamer@subsectionintoc {2}{2}{Combine}{11}{0}{2}
+\beamer@subsectionintoc {2}{3}{Conclude}{13}{0}{2}

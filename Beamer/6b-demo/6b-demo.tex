@@ -72,7 +72,7 @@ We are going to check on both cases.
 }
 
 \section{Computable bijections on $\{0,1\}^6$}
-
+\subsection{4*16 property}
 \frame{\frametitle{The $4*16$ property} 
 
 If we have a bijection it will \textbf{enumerate} all strings of  
@@ -108,39 +108,50 @@ By removing equivalent networks we are left with \textbf{$\boldsymbol{72}$ circu
 
 }
 
+\subsection{Combine}
+
 \frame{\frametitle{4*16 holds for middle and ending bits}
-oo
+
+\rotatebox{90}{
+\includegraphics[scale=1.1]{subnetsk.png}
 }
 
 
+}
+
+\frame{\frametitle{4*16 holds for middle and ending bits}
+
+\begin{itemize}
+\item \textbf{72} networks for the 2 first bits
+\item \textbf{216} networks for the 2 middle bits
+\item \textbf{72} networks for the 2 last bits
+\end{itemize}
+
+}
+
+\subsection{Conclude}
 
 \frame{\frametitle{How to conclude I ? Combine it !}
 
-The work we have done for the 2 first bits can also be done for the 2 middle bits and the 2 last bits \textbf{that also have the 4x16 property}. \\ \ \\
-We count:
 
-\begin{itemize}
-\item 72 networks for the 2 first bits
-\item 216 networks for the 2 middle bits
-\item 72 networks for the 2 last bits
-\end{itemize}
-
-\textbf{Hence} by combining these we have $72*216*72 \simeq 10^6$ 6 bits network to test.
+\textbf{Hence} by combining these we have $72*216*72 \simeq 10^6$ \\ 6 bits networks to test.
 
 } 
 
 \frame{\frametitle{How to conclude II ? Count orbits !}
 
 Over all these potential networks we count $\boldsymbol{497664}$ bijections. \\
-For each of these bijections we have to \textbf{count their orbits}, we have a winner iif it has only 1 orbit. \\ \ \\
+For each of these bijections we have to \textbf{count their orbits}, we have a winner \textbf{iif it has only 1 orbit}. \\ \ \\
 We do not find such a network, here there's the histogram of orbits: \\
 
-\includegraphics[scale=0.5]{hist_orbits.png}
+\center
 
-\textbf{Conclusion:} There are no bijective 6bits counters.
-
+\includegraphics[scale=0.46]{hist_orbits.png}
 
 } 
 
+\frame{\frametitle{Conclusion}
+\textbf{Conclusion:} There are no bijective 6bits counters.
+}
 
 \end{document}
