@@ -1,0 +1,146 @@
+% This text is proprietary.
+% It's a part of presentation made by myself.
+% It may not used commercial.
+% The noncommercial use such as private and study is free
+% Sep. 2005 
+% Author: Sascha Frank 
+% University Freiburg 
+% www.informatik.uni-freiburg.de/~frank/
+
+
+\documentclass{beamer}
+\usecolortheme{whale}
+\useoutertheme{split}
+\usefonttheme[onlysmall]{structurebold}
+\begin{document}
+%\title{Simple Beamer Class}   
+%\author{Sascha Frank} 
+%\date{\today} 
+
+%\frame{\titlepage} 
+
+\frame{\frametitle{Table of contents}\tableofcontents} 
+
+\section{Problem Statement}
+
+\frame{
+
+\frametitle{Does a 6 bit counter exists ?} 
+
+Can we create a \textbf{deterministic} network that will iterate over all 6 bits string -- in any order -- ?
+
+}
+
+\frame{
+\frametitle{Does a 6 bit counter exists ?} 
+\center{
+\includegraphics[scale=0.7]{netk.png}
+}
+
+}
+
+
+\frame{\frametitle{Can we bruteforce that problem ?}
+There are $\boldsymbol{2^{44}}$ differents networks which is approximatively $17 000$ billions.\\
+We could hope for an answer in a few days.\\
+\textbf{But} we can drastically restrict our search space with a \textbf{few} observations.
+} 
+
+
+\frame{\frametitle{How such a network's dynamic would look like ?} 
+
+There are only two possibilities (up to any permutation):
+\rotatebox{180}{
+\includegraphics[scale=0.7]{2cases.png}
+}
+
+
+}
+
+\frame{\frametitle{Implication on the computed function  by the network} 
+
+The function that our counting network coumputes is either:
+\begin{itemize}
+\item \textbf{A bijection}
+\item \textbf{An almost bijection} $f$ i.e, $\exists ! x_0,y_0 \in \{0,1\}^6$ such that $f'$ is a bijection where:  
+\begin{align*}
+\forall x \neq x_0 \quad & f'(x) = f(x) \\
+& f'(x_0) = y_0 \\
+\end{align*}
+We are going to check on both cases.
+\end{itemize} 
+}
+
+\section{Computable bijections on $\{0,1\}^6$}
+
+\frame{\frametitle{The $4*16$ property} 
+
+If we have a bijection it will \textbf{enumerate} all strings of  
+$\{0,1\}^6$. After reordordering it will look like:\\ \ \\
+\includegraphics[scale=0.6]{all6b.png}
+
+}
+
+\frame{\frametitle{The $4*16$ property} 
+
+Let's focus on the two first bits, we can organise our sequences this way: \\ \ \\
+\includegraphics[scale=0.55]{all6b2b.png}
+
+We see that \textbf{each of the 2 bits pattern happens 16 times}.\\
+It's the \textbf{$\boldsymbol{4*16}$ property}.
+
+}
+
+\frame{\frametitle{The $4*16$ property} 
+
+\rotatebox{90}{
+\includegraphics[scale=0.8]{subnetk.png}
+}
+
+
+}
+
+\frame{\frametitle{Compute all the $4*16$ sub networks} 
+
+By exausthive search we find $\boldsymbol{288}$ (over $16384$) sub networks with this property. \\ \ \\
+
+By removing equivalent networks we are left with \textbf{$\boldsymbol{72}$ circuits for the 2 first bits}.
+
+}
+
+\frame{\frametitle{4*16 holds for middle and ending bits}
+oo
+}
+
+
+
+\frame{\frametitle{How to conclude I ? Combine it !}
+
+The work we have done for the 2 first bits can also be done for the 2 middle bits and the 2 last bits \textbf{that also have the 4x16 property}. \\ \ \\
+We count:
+
+\begin{itemize}
+\item 72 networks for the 2 first bits
+\item 216 networks for the 2 middle bits
+\item 72 networks for the 2 last bits
+\end{itemize}
+
+\textbf{Hence} by combining these we have $72*216*72 \simeq 10^6$ 6 bits network to test.
+
+} 
+
+\frame{\frametitle{How to conclude II ? Count orbits !}
+
+Over all these potential networks we count $\boldsymbol{497664}$ bijections. \\
+For each of these bijections we have to \textbf{count their orbits}, we have a winner iif it has only 1 orbit. \\ \ \\
+We do not find such a network, here there's the histogram of orbits: \\
+
+\includegraphics[scale=0.5]{hist_orbits.png}
+
+\textbf{Conclusion:} There are no bijective 6bits counters.
+
+
+} 
+
+
+\end{document}
