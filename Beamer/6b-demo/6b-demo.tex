@@ -27,8 +27,6 @@
 \institute{ENS Lyon}
 \date{\today} 
 
-%\frame{\titlepage} 
-
 \begin{frame}
 	\titlepage
 	\begin{center}
@@ -48,6 +46,7 @@ We managed to compute 3 "interresting" functions in base 3 over DNA-nanotube net
 \begin{itemize}
 \item A indicator of 1
 \item A counter of 1's mod 3
+\item A binary additioner (using base 3 network !)
 \end{itemize}
 
 }
@@ -218,6 +217,69 @@ This functions computes the number of ones in the input and sets $o_0$ to this n
 		\draw[color=qqqqff] (8.16,1.26) node {$o_0$};
 	\draw[color=ffccqq] (4.5,-1.34) node {\Large Network};
 \end{tikzpicture}
+\end{center}
+
+}
+
+\frame{\frametitle{Binary additioner}
+
+Given 2 binary inputs of length 3 ($i_{0}i_{2}i_{4}$ and $i_{1}i_{3}i_{4}$), this function computes the sum mod 8 on outputs $o_{1}o_{3}o_{5}$ (other outputs are set to 0).
+
+\begin{center}
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=0.5cm,y=0.5cm]
+	\clip(0.46,-5.46) rectangle (15,2.44);
+		\fill[color=ffccqq,fill=ffccqq,fill opacity=0.1] (2,2) -- (7,2) -- (7,-5) -- (2,-5) -- cycle;
+		\draw [color=ffccqq] (2,2)-- (7,2);
+		\draw [color=ffccqq] (7,2)-- (7,-5);
+		\draw [color=ffccqq] (7,-5)-- (2,-5);
+		\draw [color=ffccqq] (2,-5)-- (2,2);
+	\draw (1,1)-- (2,1);
+	\draw (1,0)-- (2,0);
+	\draw (1,-1)-- (2,-1);
+	\draw (1,-2)-- (2,-2);
+	\draw (1,-3)-- (2,-3);
+	\draw (1,-4)-- (2,-4);
+	\draw (7,-4)-- (8,-4);
+	\draw (7,-3)-- (8,-3);
+	\draw (7,-2)-- (8,-2);
+	\draw (7,-1)-- (8,-1);
+	\draw (7,0)-- (8,0);
+	\draw (7,1)-- (8,1);
+	\fill [color=qqqqff] (1,1) circle (1.5pt);
+		\draw[color=qqqqff] (1.3,1.26) node {$i_0$};
+	\fill [color=qqqqff] (1,0) circle (1.5pt);
+		\draw[color=qqqqff] (1.3,0.26) node {$i_1$};
+	\fill [color=qqqqff] (1,-1) circle (1.5pt);
+		\draw[color=qqqqff] (1.3,-0.74) node {$i_2$};
+	\fill [color=qqqqff] (1,-2) circle (1.5pt);
+		\draw[color=qqqqff] (1.3,-1.74) node {$i_3$};
+	\fill [color=qqqqff] (1,-3) circle (1.5pt);
+		\draw[color=qqqqff] (1.3,-2.74) node {$i_4$};
+	\fill [color=qqqqff] (1,-4) circle (1.5pt);
+		\draw[color=qqqqff] (1.3,-3.74) node {$i_5$};
+	\fill [color=qqqqff] (8,-4) circle (1.5pt);
+		\draw[color=qqqqff] (8.16,-3.74) node {$o_5$};
+	\fill [color=qqqqff] (8,-3) circle (1.5pt);
+		\draw[color=qqqqff] (8.16,-2.74) node {0};
+	\fill [color=qqqqff] (8,-2) circle (1.5pt);
+		\draw[color=qqqqff] (8.16,-1.74) node {$o_3$};
+	\fill [color=qqqqff] (8,-1) circle (1.5pt);
+		\draw[color=qqqqff] (8.16,-0.74) node {0};
+	\fill [color=qqqqff] (8,0) circle (1.5pt);
+		\draw[color=qqqqff] (8.16,0.26) node {$o_1$};
+	\fill [color=qqqqff] (8,1) circle (1.5pt);
+		\draw[color=qqqqff] (8.16,1.26) node {0};
+	\draw[color=ffccqq] (4.5,-1.34) node {\Large Network};
+\end{tikzpicture}
+
+\end{center}
+
+}
+
+\frame{\frametitle{Binary additioner (2)}
+
+\begin{center}
+\includegraphics[scale=0.2]{binary_additioner}
 \end{center}
 
 }
