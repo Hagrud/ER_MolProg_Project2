@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Arch Linux) (preloaded format=pdflatex 2017.1.18)  19 JAN 2017 11:10
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Arch Linux) (preloaded format=pdflatex 2017.1.18)  19 JAN 2017 11:19
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1071,7 +1071,7 @@ m/cmss10.657pk> </home/cosmo/.texlive/texmf-var/fonts/pk/ljfour/public/cm/cmss1
 cosmo/.texlive/texmf-var/fonts/pk/ljfour/public/cm/cmss8.450pk> </home/cosmo/.t
 exlive/texmf-var/fonts/pk/ljfour/public/cm/cmsy6.600pk> </home/cosmo/.texlive/t
 exmf-var/fonts/pk/ljfour/public/cm/cmssbx10.360pk>
-Output written on 6b-demo.pdf (22 pages, 540359 bytes).
+Output written on 6b-demo.pdf (22 pages, 540382 bytes).
 PDF statistics:
  1101 PDF objects out of 1200 (max. 8388607)
  822 compressed objects within 9 object streams
