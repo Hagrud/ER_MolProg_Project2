@@ -43,7 +43,9 @@ Can we create a \textbf{deterministic} network that will iterate over all 6 bits
 \frame{\frametitle{Can we bruteforce that problem ?}
 There are $\boldsymbol{2^{44}}$ differents networks which is approximatively $17 000$ billions.\\
 We could hope for an answer in a few days.\\
-\textbf{But} we can drastically restrict our search space with a \textbf{few} observations.
+\textbf{But} we can drastically restrict our search space with a \textbf{few} observations.\\ \ \\
+
+\textbf{Main idea :} we are going to bruteforce on \textbf{sub networks} and select those who respect a \textbf{necessary} condition.
 } 
 
 
@@ -85,9 +87,23 @@ $\{0,1\}^6$. After reordordering it will look like:\\ \ \\
 
 Let's focus on the first two bits, we can organise our sequences this way: \\ \ \\
 \includegraphics[scale=0.55]{all6b2b.png}
+}
+\frame{\frametitle{The $4*16$ property} 
 
-We see that \textbf{each of the 2 bits pattern happens 16 times}.\\
+Let get rid of the last 4 bits: \\ \ \\
+
+\includegraphics[scale=0.45]{6b2b.png}
+
+\ \\ 
+
+We see that each of the 2 bits patterns:  \textbf{00, 01, 10, 11} occurs \textbf{16} times in this enumeration.\\
 It's the \textbf{$\boldsymbol{4*16}$ property}.
+
+}
+
+\frame{\frametitle{The $4*16$ property} 
+
+\textbf{Hence} the sub network responsible for these 2 bits must have the \textbf{4*16} property to be eligible as a being a sub network of a 6 bits bijective counter network.
 
 }
 
@@ -102,7 +118,7 @@ It's the \textbf{$\boldsymbol{4*16}$ property}.
 
 \frame{\frametitle{Compute all the $4*16$ sub networks} 
 
-By exausthive search we find $\boldsymbol{288}$ (over $16384$) sub networks with this property. \\ \ \\
+By exausthive search we find $\boldsymbol{288}$ (over $4*16*256=16384$) sub networks with this property. \\ \ \\
 
 By removing equivalent networks we are left with \textbf{$\boldsymbol{72}$ circuits for the first 2 bits}.
 
