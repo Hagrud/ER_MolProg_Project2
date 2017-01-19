@@ -9,18 +9,218 @@
 
 
 \documentclass{beamer}
+\usepackage[utf8]{inputenc}
+
+\usepackage{graphicx}
+\usepackage{pgf,tikz}
+\usetikzlibrary{arrows}
+
+\definecolor{ffccqq}{rgb}{1,0.8,0}
+\definecolor{qqqqff}{rgb}{0,0,1}
+
 \usecolortheme{whale}
 \useoutertheme{split}
 \usefonttheme[onlysmall]{structurebold}
 \begin{document}
-%\title{Simple Beamer Class}   
-%\author{Sascha Frank} 
-%\date{\today} 
+\title{6-inputs networks in base k}
+\author[T.Stérin,N.Pinson,P-E.Polet,R.Cerda,R.Pellerin]{Tristan Stérin, Nicolas Pinson, Pierre-Etienne Polet, Rémy Cerda, Rémi Pellerin}
+\institute{ENS Lyon}
+\date{\today} 
 
 %\frame{\titlepage} 
 
+\begin{frame}
+	\titlepage
+	\begin{center}
+	\includegraphics[height=0.5cm]{logoens.pdf}
+	\end{center}
+\end{frame}
+
 \frame{\frametitle{Table of contents}\tableofcontents} 
 
+\section{Some fancy examples}
+
+\frame{\frametitle{3 functions in base 3}
+
+We managed to compute 3 "interresting" functions in base 3 over DNA-nanotube network.
+
+
+\begin{itemize}
+\item A indicator of 1
+\item A counter of 1's mod 3
+\end{itemize}
+
+}
+
+\frame{\frametitle{Framework (recall)}
+
+We will use the following network with 6 inputs/6 outputs.
+\\
+\begin{center}
+\includegraphics[scale=0.2]{network}
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=0.5cm,y=0.5cm]
+	\clip(0.46,-5.46) rectangle (8.7,2.44);
+		\fill[color=ffccqq,fill=ffccqq,fill opacity=0.1] (2,2) -- (7,2) -- (7,-5) -- (2,-5) -- cycle;
+		\draw [color=ffccqq] (2,2)-- (7,2);
+		\draw [color=ffccqq] (7,2)-- (7,-5);
+		\draw [color=ffccqq] (7,-5)-- (2,-5);
+		\draw [color=ffccqq] (2,-5)-- (2,2);
+	\draw (1,1)-- (2,1);
+	\draw (1,0)-- (2,0);
+	\draw (1,-1)-- (2,-1);
+	\draw (1,-2)-- (2,-2);
+	\draw (1,-3)-- (2,-3);
+	\draw (1,-4)-- (2,-4);
+	\draw (7,-4)-- (8,-4);
+	\draw (7,-3)-- (8,-3);
+	\draw (7,-2)-- (8,-2);
+	\draw (7,-1)-- (8,-1);
+	\draw (7,0)-- (8,0);
+	\draw (7,1)-- (8,1);
+	\fill [color=qqqqff] (1,1) circle (1.5pt);
+		\draw[color=qqqqff] (1.3,1.26) node {$i_0$};
+	\fill [color=qqqqff] (1,0) circle (1.5pt);
+		\draw[color=qqqqff] (1.3,0.26) node {$i_1$};
+	\fill [color=qqqqff] (1,-1) circle (1.5pt);
+		\draw[color=qqqqff] (1.3,-0.74) node {$i_2$};
+	\fill [color=qqqqff] (1,-2) circle (1.5pt);
+		\draw[color=qqqqff] (1.3,-1.74) node {$i_3$};
+	\fill [color=qqqqff] (1,-3) circle (1.5pt);
+		\draw[color=qqqqff] (1.3,-2.74) node {$i_4$};
+	\fill [color=qqqqff] (1,-4) circle (1.5pt);
+		\draw[color=qqqqff] (1.3,-3.74) node {$i_5$};
+	\fill [color=qqqqff] (8,-4) circle (1.5pt);
+		\draw[color=qqqqff] (8.16,-3.74) node {$o_5$};
+	\fill [color=qqqqff] (8,-3) circle (1.5pt);
+		\draw[color=qqqqff] (8.16,-2.74) node {$o_4$};
+	\fill [color=qqqqff] (8,-2) circle (1.5pt);
+		\draw[color=qqqqff] (8.16,-1.74) node {$o_3$};
+	\fill [color=qqqqff] (8,-1) circle (1.5pt);
+		\draw[color=qqqqff] (8.16,-0.74) node {$o_2$};
+	\fill [color=qqqqff] (8,0) circle (1.5pt);
+		\draw[color=qqqqff] (8.16,0.26) node {$o_1$};
+	\fill [color=qqqqff] (8,1) circle (1.5pt);
+		\draw[color=qqqqff] (8.16,1.26) node {$o_0$};
+	\draw[color=ffccqq] (4.5,-1.34) node {\Large Network};
+\end{tikzpicture}
+\end{center}
+
+}
+
+\frame{\frametitle{The "1 indicator"}
+
+This function outputs $o_0$ = 1 iff there some $i_j$ = 1 (others outputs are always 0).
+\pause
+To do it, we used these cells :
+\\
+\begin{center}
+\includegraphics[scale=0.2]{1indicator_settings}
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=0.5cm,y=0.5cm]
+	\clip(0.46,-5.46) rectangle (15,2.44);
+		\fill[color=ffccqq,fill=ffccqq,fill opacity=0.1] (2,2) -- (7,2) -- (7,-5) -- (2,-5) -- cycle;
+		\draw [color=ffccqq] (2,2)-- (7,2);
+		\draw [color=ffccqq] (7,2)-- (7,-5);
+		\draw [color=ffccqq] (7,-5)-- (2,-5);
+		\draw [color=ffccqq] (2,-5)-- (2,2);
+	\draw (1,1)-- (2,1);
+	\draw (1,0)-- (2,0);
+	\draw (1,-1)-- (2,-1);
+	\draw (1,-2)-- (2,-2);
+	\draw (1,-3)-- (2,-3);
+	\draw (1,-4)-- (2,-4);
+	\draw (7,-4)-- (8,-4);
+	\draw (7,-3)-- (8,-3);
+	\draw (7,-2)-- (8,-2);
+	\draw (7,-1)-- (8,-1);
+	\draw (7,0)-- (8,0);
+	\draw (7,1)-- (8,1);
+	\fill [color=qqqqff] (1,1) circle (1.5pt);
+		\draw[color=qqqqff] (1.3,1.26) node {$i_0$};
+	\fill [color=qqqqff] (1,0) circle (1.5pt);
+		\draw[color=qqqqff] (1.3,0.26) node {$i_1$};
+	\fill [color=qqqqff] (1,-1) circle (1.5pt);
+		\draw[color=qqqqff] (1.3,-0.74) node {$i_2$};
+	\fill [color=qqqqff] (1,-2) circle (1.5pt);
+		\draw[color=qqqqff] (1.3,-1.74) node {$i_3$};
+	\fill [color=qqqqff] (1,-3) circle (1.5pt);
+		\draw[color=qqqqff] (1.3,-2.74) node {$i_4$};
+	\fill [color=qqqqff] (1,-4) circle (1.5pt);
+		\draw[color=qqqqff] (1.3,-3.74) node {$i_5$};
+	\fill [color=qqqqff] (8,-4) circle (1.5pt);
+		\draw[color=qqqqff] (8.16,-3.74) node {0};
+	\fill [color=qqqqff] (8,-3) circle (1.5pt);
+		\draw[color=qqqqff] (8.16,-2.74) node {0};
+	\fill [color=qqqqff] (8,-2) circle (1.5pt);
+		\draw[color=qqqqff] (8.16,-1.74) node {0};
+	\fill [color=qqqqff] (8,-1) circle (1.5pt);
+		\draw[color=qqqqff] (8.16,-0.74) node {0};
+	\fill [color=qqqqff] (8,0) circle (1.5pt);
+		\draw[color=qqqqff] (8.16,0.26) node {0};
+	\fill [color=qqqqff] (8,1) circle (1.5pt);
+		\draw[color=qqqqff] (8.16,1.26) node {$o_0$};
+	\draw[color=ffccqq] (4.5,-1.34) node {\Large Network};
+\end{tikzpicture}
+
+\end{center}
+
+}
+
+\frame{\frametitle{The counter of 1's mod 3}
+
+This functions computes the number of ones in the input and sets $o_0$ to this number mod 3 (other outputs are always 0).
+
+\pause
+
+\begin{center}
+\includegraphics[scale=0.2]{1counter_mod3}
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=0.5cm,y=0.5cm]
+	\clip(0.46,-5.46) rectangle (15,2.44);
+		\fill[color=ffccqq,fill=ffccqq,fill opacity=0.1] (2,2) -- (7,2) -- (7,-5) -- (2,-5) -- cycle;
+		\draw [color=ffccqq] (2,2)-- (7,2);
+		\draw [color=ffccqq] (7,2)-- (7,-5);
+		\draw [color=ffccqq] (7,-5)-- (2,-5);
+		\draw [color=ffccqq] (2,-5)-- (2,2);
+	\draw (1,1)-- (2,1);
+	\draw (1,0)-- (2,0);
+	\draw (1,-1)-- (2,-1);
+	\draw (1,-2)-- (2,-2);
+	\draw (1,-3)-- (2,-3);
+	\draw (1,-4)-- (2,-4);
+	\draw (7,-4)-- (8,-4);
+	\draw (7,-3)-- (8,-3);
+	\draw (7,-2)-- (8,-2);
+	\draw (7,-1)-- (8,-1);
+	\draw (7,0)-- (8,0);
+	\draw (7,1)-- (8,1);
+	\fill [color=qqqqff] (1,1) circle (1.5pt);
+		\draw[color=qqqqff] (1.3,1.26) node {$i_0$};
+	\fill [color=qqqqff] (1,0) circle (1.5pt);
+		\draw[color=qqqqff] (1.3,0.26) node {$i_1$};
+	\fill [color=qqqqff] (1,-1) circle (1.5pt);
+		\draw[color=qqqqff] (1.3,-0.74) node {$i_2$};
+	\fill [color=qqqqff] (1,-2) circle (1.5pt);
+		\draw[color=qqqqff] (1.3,-1.74) node {$i_3$};
+	\fill [color=qqqqff] (1,-3) circle (1.5pt);
+		\draw[color=qqqqff] (1.3,-2.74) node {$i_4$};
+	\fill [color=qqqqff] (1,-4) circle (1.5pt);
+		\draw[color=qqqqff] (1.3,-3.74) node {$i_5$};
+	\fill [color=qqqqff] (8,-4) circle (1.5pt);
+		\draw[color=qqqqff] (8.16,-3.74) node {0};
+	\fill [color=qqqqff] (8,-3) circle (1.5pt);
+		\draw[color=qqqqff] (8.16,-2.74) node {0};
+	\fill [color=qqqqff] (8,-2) circle (1.5pt);
+		\draw[color=qqqqff] (8.16,-1.74) node {0};
+	\fill [color=qqqqff] (8,-1) circle (1.5pt);
+		\draw[color=qqqqff] (8.16,-0.74) node {0};
+	\fill [color=qqqqff] (8,0) circle (1.5pt);
+		\draw[color=qqqqff] (8.16,0.26) node {0};
+	\fill [color=qqqqff] (8,1) circle (1.5pt);
+		\draw[color=qqqqff] (8.16,1.26) node {$o_0$};
+	\draw[color=ffccqq] (4.5,-1.34) node {\Large Network};
+\end{tikzpicture}
+\end{center}
+
+}
 \section{Problem Statement}
 
 \frame{
